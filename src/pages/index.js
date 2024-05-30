@@ -3,13 +3,16 @@ import dbConnect from "../lib/dbConnect";
 import Pet from "../models/Pet";
 
 // TODO: Import Hours component
+import Hours from "../components/Hours";
 
 const Index = ({ pets }) => {
-
+ 
   return (
+    
     <>
 
       {/* TODO: Display Hours component */}
+       <Hours />
 
       {/* Create a card for each pet */}
       {pets.map((pet) => (
@@ -38,6 +41,7 @@ const Index = ({ pets }) => {
                   ))}
                 </ul>
               </div>
+            
 
               <div className="btn-container">
                 <Link href="/[id]/edit" as={`/${pet._id}/edit`}>
@@ -50,10 +54,12 @@ const Index = ({ pets }) => {
             </div>
           </div>
         </div>
+
       ))}
     </>
   );
 };
+<Hours />
 
 /* Retrieves pet(s) data from mongodb database */
 export async function getServerSideProps() {
